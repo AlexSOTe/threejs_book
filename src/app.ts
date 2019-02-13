@@ -1,10 +1,8 @@
 import { Scene, WebGLRenderer, PerspectiveCamera, Vector3, MeshBasicMaterial, Mesh, CubeGeometry, DirectionalLight, MeshPhongMaterial, AxesHelper, SphereGeometry, MeshLambertMaterial, ImageUtils, Texture, DoubleSide, TextureLoader, Sphere, PointLight, Color, AmbientLight, Fog, SpotLight } from 'three'
-import { AppConfig } from './app.config'
 import { mainScene } from './scenes/index'
 import InitStats from './modules/stats'
 
 function App() {
-  AppConfig()
   let stats: any = InitStats()
 
   // 相机
@@ -43,6 +41,15 @@ function App() {
   }
   EveryBodyMove()
 
+  // 添加window 的resize事件监听
+  window.addEventListener('resize', function () {
+    // 重新设置相机宽高比例
+    camera.aspect = window.innerWidth / window.innerHeight;
+    // 更新相机投影矩阵
+    camera.updateProjectionMatrix();
+    // 重新设置渲染器渲染范围
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
 }
 
 export default App
