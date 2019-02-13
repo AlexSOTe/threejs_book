@@ -1,2 +1,2 @@
-# threejs_book
-我的threejs学习
+# threedemo
+threejs demo
