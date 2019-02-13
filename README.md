@@ -1,2 +1,2 @@
-# threedemo
+# threejs_book
 threejs demo
