@@ -4,4 +4,4 @@ import { Scene, Fog } from 'three'
 const mainScene: Scene = new Scene()
 mainScene.fog = new Fog(0x00ff00, 0.1, 1000)
 
-export { mainScene }
+export default mainScene
