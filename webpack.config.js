@@ -36,15 +36,17 @@ const config = {
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([{
-      from: './src/assets'
+      from: __dirname + '/src/assets',
+      to: __dirname + '/dist/assets'
     }])
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    compress: false,
     hot: true,
     host: 'localhost',
-    port: 9000
+    port: 9000,
+    stats: 'errors-only',
     // open: true // 自动在浏览器中打开
   },
   resolve: {

@@ -23,15 +23,10 @@ function App() {
   mainScene.add(light)
 
   //加载模型
-  const objLoader = new THREE.ObjectLoader()
-  objLoader.load('./assets/model/death.obj', obj => {
-    obj.position.x = 0;
-    obj.position.y = 0;
-    obj.position.z = 0;
-    obj.scale.set(0.05, 0.05, 0.05);
-    mainScene.add(obj);
+  const loader: THREE.FileLoader = new THREE.FileLoader()
+  loader.load('./assets/model/death.obj', (obj) => {
+    console.log(obj);
   })
-
 
   // 动起来，让世界为你喝彩
   function EveryBodyMove() {
