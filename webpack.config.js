@@ -18,6 +18,17 @@ const config = {
       {
         test: /\.ts$/,
         use: ['ts-loader']
+      },
+      {
+        test: /\.obj$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              mimetype: 'application/octet-stream'
+            }
+          }
+        ]
       }
     ]
   },
@@ -46,7 +57,8 @@ const config = {
       '.jpg',
       '.png',
       '.gif',
-      '.bmp'
+      '.bmp',
+      '.obj'
     ]
   }
 };

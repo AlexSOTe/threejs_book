@@ -22,20 +22,22 @@ function App() {
   light.position.set(500, 500, 500)
   mainScene.add(light)
 
-  let cubeGeometry: THREE.BoxGeometry = new THREE.BoxGeometry(50, 50, 50, 50, 50, 50)
-  let cubeMaterial: THREE.MeshLambertMaterial = new THREE.MeshLambertMaterial({
-    color: 0xffffff
+  //加载模型
+  const objLoader = new THREE.ObjectLoader()
+  objLoader.load('./assets/model/death.obj', obj => {
+    obj.position.x = 0;
+    obj.position.y = 0;
+    obj.position.z = 0;
+    obj.scale.set(0.05, 0.05, 0.05);
+    mainScene.add(obj);
   })
-  let cube: THREE.Mesh = new THREE.Mesh(cubeGeometry, cubeMaterial)
-  mainScene.add(cube)
+
 
   // 动起来，让世界为你喝彩
   function EveryBodyMove() {
     stats.update()
     renderer.render(mainScene, camera)
-    cube.rotation.x += 0.01
-    cube.rotation.y += 0.01
-    cube.rotation.z += 0.01
+
 
     requestAnimationFrame(EveryBodyMove)
   }
